@@ -10,7 +10,8 @@ long sum(int arr[], int n) {
 int main(void) {
     int n = 0;
     cin >> n;
-    // int miski[n]; ошибка нужен динамический массив
+    int miski[n];
+    // ошибка нужен динамический массив
     for (int i = 0; i < n; i++) { miski[i] = i + 1; }
 
     if (sum(miski, n) % 2 != 0) {
