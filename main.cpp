@@ -31,5 +31,6 @@ int main(void) {
     for (int i = 0; i < used_miski; i++) { cout << miski[i] << " "; }
     cout << endl;
 
+    delete[] miski;
     return 0;
 }
