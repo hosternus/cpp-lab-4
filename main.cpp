@@ -8,28 +8,42 @@ long sum(int arr[], int n) {
 }
 
 int main(void) {
+
     int n = 0;
     cin >> n;
     
     int *miski = new int[n];
-    for (int i = 0; i < n; i++) { miski[i] = i + 1; }
-
-    if (sum(miski, n) % 2 != 0) {
-        cout << "NO" << endl;
-        return 0;
-    }
-    cout << "YES" << endl;
+    for (size_t i = 0; i < n; i++) { miski[i] = i + 1; }
 
     int used_miski = 0;
-    while (sum(miski, used_miski) < (sum(miski, n)/2)) { used_miski++; }
+    long half_sum = sum(miski, n) / 2;
+    
+    for (size_t i = 0; i < n; i++) {
+        if (sum(miski, i) == half_sum) {
+            used_miski = i;
+            break;
+        }
+    }
 
-    cout << "Peta: " << n-used_miski << endl;
-    for (int i = 0; i < n - used_miski; i++) { cout << miski[used_miski + i] << " "; }
-    cout << endl;
 
-    cout << "Masha: " << used_miski << endl;
-    for (int i = 0; i < used_miski; i++) { cout << miski[i] << " "; }
-    cout << endl;
+    if (used_miski == 0) {
+        cout << "NO" << endl;
+    } else {
+        cout << "YES" << endl;
+
+        cout << "Masha: " << used_miski << endl;
+        for (size_t i = 0; i < used_miski; i++) {
+            cout << miski[i] << " ";
+        }
+        cout << endl;
+
+        cout << "Petya: " << (n-used_miski) << endl;
+        for (size_t i = used_miski; i < n; i++ ) {
+            cout << miski[i] << " ";
+        }
+        cout << endl;
+    }
+
 
     delete[] miski;
     return 0;
