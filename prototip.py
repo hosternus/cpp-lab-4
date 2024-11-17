@@ -1,51 +1,24 @@
-n = int(input())
-miski = [i+1 for i in range(n)]
+def split_soup(n):
 
-print(miski)
-
-def f(miski):
-    if sum(miski) % 2 != 0:
+    if n * (n + 1) // 2 % 2 != 0:
         print("NO")
         return
-    
+
+    petya, masha = [], []
+
+    # Идём с конца и добавляем числа в одну из групп
+    for i in range(n, 0, -1):
+        if sum(masha) > sum(petya):
+            petya.append(i)
+        else:
+            masha.append(i)
+
     print("YES")
-
-    porcia = sum(miski) // 2
-
-    masha = []
-
-    while sum(masha) < porcia:
-        masha.append(miski.pop(0))
-
-    print(masha)
-    print(miski)
-
-    return
+    print("petya", len(petya))
+    print(" ".join(map(str, petya)))
+    print("masha", len(masha))
+    print(" ".join(map(str, masha)))
 
 
-f(miski)
-
-# YES
-# 36
-# 39
-# 40
-# 43
-# 44
-# 47
-# 48
-# 51
-
-
-
-# NO
-# 6
-# 9
-# 10
-# 13
-# 14
-# 17
-# 18
-# 26
-# 29
-# 33
-# 34
+n = int(input())
+split_soup(n)
