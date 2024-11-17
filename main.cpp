@@ -12,39 +12,20 @@ int main(void) {
     int n = 0;
     cin >> n;
     
-    int *miski = new int[n];
-    for (size_t i = 0; i < n; i++) { miski[i] = i + 1; }
+    int sum_m = n * (n - 1) / 2;
 
-    int used_miski = 0;
-    long half_sum = sum(miski, n) / 2;
-    
-    for (size_t i = 0; i < n; i++) {
-        if (sum(miski, i) == half_sum) {
-            used_miski = i;
-            break;
-        }
-    }
+    // int *miski = new int[n];
+    // for (size_t i = 0; i < n; i++) { miski[i] = i + 1; }
 
 
-    if (used_miski == 0) {
-        cout << "NO" << endl;
-    } else {
+    if (sum_m % 2 == 0) {
         cout << "YES" << endl;
-
-        cout << "Masha: " << used_miski << endl;
-        for (size_t i = 0; i < used_miski; i++) {
-            cout << miski[i] << " ";
-        }
-        cout << endl;
-
-        cout << "Petya: " << (n-used_miski) << endl;
-        for (size_t i = used_miski; i < n; i++ ) {
-            cout << miski[i] << " ";
-        }
-        cout << endl;
+    } else {
+        cout << "NO" << endl;
     }
+    
 
 
-    delete[] miski;
+    // delete[] miski;
     return 0;
 }
