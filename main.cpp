@@ -17,7 +17,7 @@ void divideByGroup(int n) {
     int counter_p = 0, counter_m = 0;
 
     for (int i = n; i >= 1; i--) {
-        if ( sum(masha, n) > sum(petya, n) ) {
+        if ( sum(masha, n/2) > sum(petya, n/2) ) {
             petya[counter_p] = i;
             counter_p++;
         } else {
