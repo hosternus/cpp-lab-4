@@ -11,13 +11,13 @@ long sum(int arr[], int n) {
 
 void divideByGroup(int n) {
 
-    int *masha = new int[n/2];
-    int *petya = new int[n/2];
+    int *masha = new int[n];
+    int *petya = new int[n];
     
     int counter_p = 0, counter_m = 0;
 
     for (int i = n; i >= 1; i--) {
-        if ( sum(masha, n/2) > sum(petya, n/2) ) {
+        if ( sum(masha, n) > sum(petya, n) ) {
             petya[counter_p] = i;
             counter_p++;
         } else {
